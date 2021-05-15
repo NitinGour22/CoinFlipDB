@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="myActivity"
+            type="com.piexxi.coinflipdb.MainActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ming"
+        android:contentDescription="@string/icon_description"
+        android:padding="20dp"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_simulate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coda"
+            android:text="@string/switch_text"
+            android:textColor="@color/onyx"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/icon_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024"
+            app:srcCompat="@drawable/ic_flip_icon" />
+
+        <TextView
+            android:id="@+id/tv_flip_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/coda"
+            android:textColor="@color/maize"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_coin"
+            android:text="@{myActivity.coinStatus}"/>
+
+        <Button
+            android:id="@+id/bt_flip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/timberwolf"
+            android:fontFamily="@font/coda"
+            android:text="@string/flip_bt_text"
+            android:textColor="@color/onyx"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bt_reset"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_flip_result"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <Button
+            android:id="@+id/bt_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/timberwolf"
+            android:fontFamily="@font/coda"
+            android:text="@string/reset_bt_text"
+            android:textColor="@color/onyx"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bt_flip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bt_flip"
+            app:layout_constraintTop_toTopOf="@+id/bt_flip"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_total_flips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coda"
+            android:text="@string/total_flips_text"
+            android:textColor="@color/maize"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_total_heads"
+            app:layout_constraintEnd_toEndOf="@+id/tv_total_heads"
+            app:layout_constraintStart_toStartOf="@+id/tv_total_heads"
+            app:layout_constraintTop_toBottomOf="@+id/bt_flip"
+            app:layout_constraintVertical_bias="0.07999998"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_total_heads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/coda"
+            android:text="@string/total_heads_text"
+            android:textColor="@color/maize"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_total_tails"
+            app:layout_constraintEnd_toEndOf="@+id/tv_total_tails"
+            app:layout_constraintStart_toStartOf="@+id/tv_total_tails"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_flips" />
+
+        <TextView
+            android:id="@+id/tv_total_tails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coda"
+            android:text="@string/total_tails_text"
+            android:textColor="@color/maize"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_heads" />
+
+        <ProgressBar
+            android:id="@+id/pb_heads_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="@color/timberwolf"
+            app:layout_constraintBottom_toTopOf="@+id/tv_tails_percent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_head_percent" />
+
+        <ProgressBar
+            android:id="@+id/pb_tails_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="@color/onyx"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tails_percent" />
+
+        <TextView
+            android:id="@+id/tv_head_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coda"
+            android:text="@string/placeholder_head_percent_text"
+            android:textColor="@color/timberwolf"
+            app:layout_constraintBottom_toTopOf="@+id/pb_heads_percent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_heads"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_tails_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/coda"
+            android:text="@string/placeholder_tails_percent_text"
+            android:textColor="@color/onyx"
+            app:layout_constraintBottom_toTopOf="@+id/pb_tails_percent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pb_heads_percent" />
+
+        <EditText
+            android:id="@+id/et_numberof_flips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/coda"
+            android:hint="@string/flip_sim_hint"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/onyx"
+            android:textColorHint="@color/onyx"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bt_simulate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pb_tails_percent"
+            app:layout_constraintVertical_bias="0.19999999"
+            tools:visibility="invisible" />
+
+        <Button
+            android:id="@+id/bt_simulate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:backgroundTint="@color/onyx"
+            android:fontFamily="@font/coda"
+            android:text="@string/bt_simulate_text"
+            android:textColor="@color/timberwolf"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/et_numberof_flips"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/et_numberof_flips"
+            app:layout_constraintTop_toTopOf="@+id/et_numberof_flips"
+            tools:visibility="invisible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

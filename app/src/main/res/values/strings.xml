@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Coin Flip</string>
+    <string name="switch_text">Simulation Mode</string>
+    <string name="icon_description">Icon to represent to coin flip</string>
+    <string name="flip_bt_text">Flip</string>
+    <string name="reset_bt_text">Reset</string>
+    <string name="total_flips_text">Toatl Flip : 0</string>
+    <string name="total_heads_text">Total Heads : 0</string>
+    <string name="total_tails_text">Total Tails : 0</string>
+    <string name="placeholder_head_percent_text">Heads : 0%</string>
+    <string name="placeholder_tails_percent_text">Tails : 0%</string>
+    <string name="flip_sim_hint">Flips to Simulate</string>
+    <string name="bt_simulate_text">Simulate</string>
+</resources>
