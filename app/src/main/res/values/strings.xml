@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Coin Flip</string>
+    <string name="app_name">Coin Flip DB</string>
     <string name="switch_text">Simulation Mode</string>
     <string name="icon_description">Icon to represent to coin flip</string>
     <string name="flip_bt_text">Flip</string>

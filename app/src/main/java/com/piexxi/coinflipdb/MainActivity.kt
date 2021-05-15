@@ -63,11 +63,11 @@ class MainActivity : AppCompatActivity() {
         if (coinvalue == "heads") {
             heads++
             binding.ivCoin.setImageResource(R.drawable.ic_heads_icon)
-            coinStatus = "Ypu flipped a Head !!"
+            coinStatus = "You flipped a Head !!"
         } else {
             tails++
             binding.ivCoin.setImageResource(R.drawable.ic_tails_icon)
-            coinStatus = "Ypu flipped a Tail !!"
+            coinStatus = "You flipped a Tail !!"
         }
 
         binding.apply { invalidateAll() }
